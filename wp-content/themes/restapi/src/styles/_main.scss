@@ -1,0 +1,30 @@
+.container {
+    @include clearfix;
+    width: 1170px;
+    position: relative;
+    margin: 0 auto;
+    padding: 1rem;
+    @include bp-lg {
+        width: 970px;
+    }
+    @include bp-md {
+        width: 750px;
+    }
+    @include bp-sm {
+        width: 100%;
+    }
+}
+
+.post-list {
+	display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.post {
+	padding: 1rem;
+	margin: 1rem;
+	flex: 1;
+	flex-basis: 20%;
+	background-color: $primary-color-light;
+}
