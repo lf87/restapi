@@ -10,33 +10,30 @@ body {
 .large-heading,
 .medium-heading,
 .small-heading {
-    @include font-size(50px);
+    @include font-size(32px);
     display: inline-block;
     font-weight: 500;
-    margin-bottom: .75em;
+    margin-bottom: .5em;
     width: 100%;
     @include bp-lg {
         @include font-size(30px);
     }
     @include bp-sm {
-        @include font-size(34px);
+        @include font-size(28px);
     }
 }
 
 .medium-heading {
-    @include font-size(20px);
-    margin-bottom: .25em;
+    @include font-size(25px);
+    margin-bottom: .5em;
     @include bp-lg {
         @include font-size(24px);
     }
 }
 
 .small-heading {
-    @include font-size(24px);
-    margin-bottom: .25em;
-    @include bp-lg {
-        @include font-size(20px);
-    }
+    @include font-size(20px);
+    margin-bottom: .5em;
 }
 
 p {

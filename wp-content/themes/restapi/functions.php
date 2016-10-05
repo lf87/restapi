@@ -60,13 +60,18 @@ function prepare_rest($data, $post, $request) {
 	$_data = $data->data;
 	$thumbnail_id = get_post_thumbnail_id( $post_id );
 
+	// Thumbnails
 	$thumbnail300x180 = wp_get_attachment_image_src( $thumbnail_id, '300x180' );
 	$thumbnailMedium = wp_get_attachment_image_src( $thumbnail_id, 'medium' );
 	$thumbnailMedium = wp_get_attachment_image_src( $thumbnail_id, 'full' );
 
+	// Categories
+	$cats = get_the_category( $post_id );
+
 	$_data['fi_300xx180'] = $thumbnail300x180[0];
 	$_data['fi_medium'] = $thumbnail300x180[0];
 	$_data['fi_full'] = $thumbnail300x180[0];
+	$_data['cats'] = $cats;
 
 	$data->data = $_data;
 	return $data;

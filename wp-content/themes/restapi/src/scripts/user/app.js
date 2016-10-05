@@ -20,7 +20,8 @@
         template: '#post-list-template',
         data: function() {
         	return {
-        		posts: ''
+        		posts: '',
+                nameFilter: ''
         	};
         },
         ready: function() {

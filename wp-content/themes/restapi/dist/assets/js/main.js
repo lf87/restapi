@@ -14057,7 +14057,8 @@ return /******/ (function(modules) { // webpackBootstrap
         template: '#post-list-template',
         data: function() {
         	return {
-        		posts: ''
+        		posts: '',
+                nameFilter: ''
         	};
         },
         ready: function() {
