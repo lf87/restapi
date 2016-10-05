@@ -4,6 +4,7 @@ body {
     @include roboto(500);
     background-color: $primary-color-text;
     color: $primary-text-color;
+    padding-top: 3rem;
 }
 
 // Copy

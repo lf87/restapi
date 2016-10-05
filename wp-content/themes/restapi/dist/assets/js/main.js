@@ -14058,14 +14058,22 @@ return /******/ (function(modules) { // webpackBootstrap
         data: function() {
         	return {
         		posts: '',
-                nameFilter: ''
+                nameFilter: '',
+                categoryFilter: '',
+                categories: ''
         	};
         },
         ready: function() {
-        	var posts = this.$resource('/wp-json/wp/v2/posts?per_page=20');
+            var posts = this.$resource('/wp-json/wp/v2/posts?per_page=20'),
+        	   categories = this.$resource('/wp-json/wp/v2/categories');
+
         	posts.get(function(posts) {
         		this.$set('posts', posts);
         	});
+
+            categories.get(function(categories) {
+                this.$set('categories', categories);
+            });
         }
     });
 

@@ -5,12 +5,21 @@
     </div>
 </main>
 <template id="post-list-template">
-    <div class="container filter">
-        <h4 class="medium-heading">Filter by Name</h4>
-        <input type="text" placeholder="Enter search term" name="" v-model="nameFilter">
+    <div class="container filters">
+        <div class="filter">
+            <h4 class="medium-heading">Filter by Name</h4>
+            <input type="text" placeholder="Enter search term" name="" v-model="nameFilter">
+        </div>
+        <div class="filter">
+            <h4 class="medium-heading">Filter by Category</h4>
+            <div class="radio-wrap" v-for="category in categories" v-if="category.name != 'Uncategorised'">
+                <input type="radio" value="{{ category.id }}" v-model="categoryFilter">
+                <label>{{ category.name }}</label>
+            </div>
+        </div>
     </div>
     <div class="container post-list">
-        <article v-for="post in posts | filterBy nameFilter in 'title'" class="post">
+        <article v-for="post in posts | filterBy nameFilter in 'title' | filterBy categoryFilter in 'categories'" class="post">
             <img v-bind:src="post.fi_300xx180" alt="">
             <div class="post-content">
                 <h2 class="small-heading">{{ post.title.rendered }}</h2>
