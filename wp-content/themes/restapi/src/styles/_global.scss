@@ -2,7 +2,7 @@ body {
     @include font-size(16px);
     @include font-smoothing;
     @include roboto(500);
-    background-color: $background-color;
+    background-color: $primary-color-text;
     color: $primary-text-color;
 }
 
@@ -16,7 +16,7 @@ body {
     margin-bottom: .75em;
     width: 100%;
     @include bp-lg {
-        @include font-size(40px);
+        @include font-size(30px);
     }
     @include bp-sm {
         @include font-size(34px);
@@ -24,7 +24,7 @@ body {
 }
 
 .medium-heading {
-    @include font-size(30px);
+    @include font-size(20px);
     margin-bottom: .25em;
     @include bp-lg {
         @include font-size(24px);

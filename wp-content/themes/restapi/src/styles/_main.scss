@@ -16,15 +16,24 @@
 }
 
 .post-list {
-	display:flex;
+    display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
 .post {
-	padding: 1rem;
-	margin: 1rem;
-	flex: 1;
-	flex-basis: 20%;
-	background-color: $primary-color-light;
+    margin: 1rem;
+    flex: 1;
+    flex-basis: 20%;
+    background-color: $primary-color;
+    color: $primary-color-text;
+    text-align: center;
+    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.2);
+    img {
+        width: 100%;
+    }
+}
+
+.post-content {
+    padding: 1rem;
 }
