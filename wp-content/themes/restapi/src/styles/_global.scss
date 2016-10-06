@@ -2,9 +2,8 @@ body {
     @include font-size(16px);
     @include font-smoothing;
     @include roboto(500);
-    background-color: $primary-color-text;
+    background-color: $background-color;
     color: $primary-text-color;
-    padding-top: 3rem;
 }
 
 // Copy

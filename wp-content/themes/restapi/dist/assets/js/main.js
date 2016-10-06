@@ -14056,24 +14056,34 @@ return /******/ (function(modules) { // webpackBootstrap
     var postList = Vue.extend({
         template: '#post-list-template',
         data: function() {
-        	return {
-        		posts: '',
+            return {
+                posts: '',
                 nameFilter: '',
                 categoryFilter: '',
-                categories: ''
-        	};
+                categories: '',
+                filterActive: false
+            };
         },
         ready: function() {
             var posts = this.$resource('/wp-json/wp/v2/posts?per_page=20'),
-        	   categories = this.$resource('/wp-json/wp/v2/categories');
+                categories = this.$resource('/wp-json/wp/v2/categories');
 
-        	posts.get(function(posts) {
-        		this.$set('posts', posts);
-        	});
+            posts.get(function(posts) {
+                this.$set('posts', posts);
+            });
 
             categories.get(function(categories) {
                 this.$set('categories', categories);
             });
+        },
+        methods: {
+            filterVisibility: function() {
+                if (this.filterActive) {
+                    this.$set('filterActive', false);
+                } else {
+                    this.$set('filterActive', true);
+                }
+            }
         }
     });
 

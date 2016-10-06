@@ -3,6 +3,7 @@
     width: 1170px;
     position: relative;
     margin: 0 auto;
+    background-color: $primary-color-text;
     @include bp-lg {
         width: 970px;
     }
@@ -14,10 +15,29 @@
     }
 }
 
-// Filter
-.filters {
+.pad {
     padding: 0 1rem;
-    margin-bottom: 3rem;
+}
+
+// Header
+.main-header {
+    margin-bottom: 1rem;
+    img {
+        width: 100%;
+    }
+}
+
+// Filters
+.filters {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: $z-filters;
+    transition: transform .5s ease-out;
+    box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.25);
+    backface-visibility: hidden;
+    transform: translate3d(0, -102%, 0);
     h4 {
         display: block;
     }
@@ -35,21 +55,49 @@
             border: 1px $primary-text-color solid;
         }
     }
+    .container {
+        background-color: $background-color;
+        padding: 1rem 0;
+    }
+    &.filter-active {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.filter-revealer {
+    background-color: $background-color;
+    margin-bottom: 1rem;
+    .filter-active {
+        opacity: .3;
+    }
+    a {
+        @include font-size(16px);
+        transition: opacity .2s ease-in;
+        color: $primary-color-text;
+        cursor: pointer;
+        float: left;
+        display: block;
+    }
 }
 
 .filter {
     float: left;
-    &:last-child {
-        text-align: right;
-        float: right;
+    width: 100%;
+}
+
+.name-filter {
+    input {
+        margin-bottom: 1.5em;
+        width: 100%;
     }
 }
 
 .radio-wrap {
-    float: right;
+    float: left;
     input,
     label {
-        padding: .25em .5em;
+        padding: .25em .5em 0 0;
+        margin: 3px 3px 0 0;
     }
 }
 
