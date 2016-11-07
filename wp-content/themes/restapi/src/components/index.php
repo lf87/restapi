@@ -30,7 +30,7 @@
         </div>
     </div>
     <div class="container pad filter-revealer">
-        <a href="#" class="bubble" v-on:click="filterVisibility" v-bind:class="{ 'filter-active': filterActive }">Toggle Filters</a>
+        <a href="#" class="bubble" v-on:click="filterVisibility" v-bind:class="{ 'filter-active': filterActive }">{{ filterActive ? 'Close Filters' : 'Open Filters' }}</a>
     </div>
     <!-- Posts //-->
     <div class="container post-list">

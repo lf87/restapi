@@ -32,7 +32,7 @@
     // potential issues when using the ./ glob pattern
 
     // File Format
-    var fileFormat = 'html',
+    var fileFormat = 'php',
         fileExt = '.' + fileFormat;
 
     // Source files
@@ -153,7 +153,7 @@
 
     // $ gulp fileinclude
     gulp.task('fileinclude', function() {
-        return gulp.src([src.pages])
+        return gulp.src(src.pages)
             .pipe(fileinclude({
                 prefix: '@@',
                 basepath: '@file'

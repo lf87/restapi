@@ -68,11 +68,11 @@
     background-color: $background-color;
     margin-bottom: 1rem;
     .filter-active {
-        opacity: .3;
+    background-color: $accent-color;
     }
     a {
         @include font-size(16px);
-        transition: opacity .2s ease-in;
+        transition: background-color .1s ease-out;
         color: $primary-color-text;
         cursor: pointer;
         float: left;
