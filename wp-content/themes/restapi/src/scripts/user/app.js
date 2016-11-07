@@ -24,7 +24,8 @@
                 nameFilter: '',
                 categoryFilter: '',
                 categories: '',
-                filterActive: false
+                filterActive: false,
+                post: ''
             };
         },
         ready: function() {
@@ -40,6 +41,15 @@
             });
         },
         methods: {
+            getThePost: function(id) {
+                var posts = this.posts;
+
+                function filterPosts(el) {
+                    return el.id == id;
+                }
+
+                this.$set('post', posts.filter(filterPosts));
+            },
             filterVisibility: function() {
                 if (this.filterActive) {
                     this.$set('filterActive', false);

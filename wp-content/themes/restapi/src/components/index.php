@@ -35,7 +35,9 @@
     <!-- Posts //-->
     <div class="container post-list">
         <article v-for="post in posts | filterBy nameFilter in 'title' | filterBy categoryFilter in 'categories'" class="post">
-            <img v-bind:src="post.fi_300xx180" alt="">
+            <a v-on:click="getThePost(post.id)">
+                <img v-bind:src="post.fi_300xx180" alt="">
+            </a>
             <div class="post-content">
                 <h2 class="small-heading">{{ post.title.rendered }}</h2>
                 <span class="bubbles">
@@ -45,6 +47,11 @@
                 </span>
             </div>
         </article>
+    </div>
+    <div class="single-preview">
+        <h2>{{ post[0].title.rendered }}</h2>
+        <img v-bind:src="post[0].fi_300xx180" alt="">
+        {{{ post[0].excerpt.rendered }}}
     </div>
 </template>
 <?php get_footer(); ?>

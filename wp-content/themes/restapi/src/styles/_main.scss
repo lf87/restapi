@@ -130,6 +130,9 @@
     img {
         width: 100%;
     }
+    a {
+        cursor: pointer;
+    }
 }
 
 .post-content {
@@ -157,4 +160,21 @@
     border-radius: 5px;
     padding: .25em .5em;
     margin: 0 .5em 0 0;
+}
+
+.single-preview {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background-color: $background-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    h2,img,p {
+        padding: 0 1em 1.5em;
+    }
 }
