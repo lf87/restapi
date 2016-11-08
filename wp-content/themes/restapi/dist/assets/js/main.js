@@ -14062,7 +14062,8 @@ return /******/ (function(modules) { // webpackBootstrap
                 categoryFilter: '',
                 categories: '',
                 filterActive: false,
-                post: ''
+                post: '',
+                show: false
             };
         },
         ready: function() {
@@ -14081,6 +14082,8 @@ return /******/ (function(modules) { // webpackBootstrap
             getThePost: function(id) {
                 var posts = this.posts;
 
+                this.$set('show', true);
+
                 function filterPosts(el) {
                     return el.id == id;
                 }
@@ -14093,6 +14096,9 @@ return /******/ (function(modules) { // webpackBootstrap
                 } else {
                     this.$set('filterActive', true);
                 }
+            },
+            closePost: function() {
+                this.$set('show', false);
             }
         }
     });

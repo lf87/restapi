@@ -104,6 +104,10 @@
     clear: both;
   }
 }
+// Box Shadow
+@mixin box-shadow($pos: 2px, $opacity: .15) {
+   box-shadow: (0 - $pos) $pos 5px 0px rgba(0, 0, 0, $opacity);
+}
 // Visually hide an element
 @mixin visually-hidden {
   margin: -1px;

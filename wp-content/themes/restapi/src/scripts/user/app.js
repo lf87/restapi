@@ -25,7 +25,8 @@
                 categoryFilter: '',
                 categories: '',
                 filterActive: false,
-                post: ''
+                post: '',
+                show: false
             };
         },
         ready: function() {
@@ -44,6 +45,8 @@
             getThePost: function(id) {
                 var posts = this.posts;
 
+                this.$set('show', true);
+
                 function filterPosts(el) {
                     return el.id == id;
                 }
@@ -56,6 +59,9 @@
                 } else {
                     this.$set('filterActive', true);
                 }
+            },
+            closePost: function() {
+                this.$set('show', false);
             }
         }
     });

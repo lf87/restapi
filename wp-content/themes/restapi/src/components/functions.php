@@ -63,15 +63,24 @@ function prepare_rest($data, $post, $request) {
 	// Thumbnails
 	$thumbnail300x180 = wp_get_attachment_image_src( $thumbnail_id, '300x180' );
 	$thumbnailMedium = wp_get_attachment_image_src( $thumbnail_id, 'medium' );
-	$thumbnailMedium = wp_get_attachment_image_src( $thumbnail_id, 'full' );
+	$full = wp_get_attachment_image_src( $thumbnail_id, 'full' );
 
 	// Categories
 	$cats = get_the_category( $post_id );
 
+	// Next/Prev
+	$nextPost = get_adjacent_post(false, '', true );
+	$nextPost = $nextPost->ID;
+
+	$prevPost = get_adjacent_post(false, '', false );
+	$prevPost = $prevPost->ID;
+
 	$_data['fi_300xx180'] = $thumbnail300x180[0];
-	$_data['fi_medium'] = $thumbnail300x180[0];
-	$_data['fi_full'] = $thumbnail300x180[0];
+	$_data['fi_medium'] = $thumbnailMedium[0];
+	$_data['full'] = $full[0];
 	$_data['cats'] = $cats;
+	$_data['next_post'] = $nextPost;
+	$_data['prev_post'] = $prevPost;
 
 	$data->data = $_data;
 	return $data;

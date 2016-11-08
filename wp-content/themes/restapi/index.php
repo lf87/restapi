@@ -5,6 +5,8 @@
     </div>
 </main>
 <template id="post-list-template">
+    <!-- Overlay //-->
+    <div class="overlay" v-if="show" transition="overlay-show"></div>
     <!-- Header //-->
     <header class="container main-header">
         <img src="<?php echo get_template_directory_uri() ?>/dist/assets/img/290.jpg" alt="">
@@ -29,6 +31,7 @@
             </div>
         </div>
     </div>
+    <!-- Show Filters Button //-->
     <div class="container pad filter-revealer">
         <a href="#" class="bubble" v-on:click="filterVisibility" v-bind:class="{ 'filter-active': filterActive }">{{ filterActive ? 'Close Filters' : 'Open Filters' }}</a>
     </div>
@@ -48,10 +51,14 @@
             </div>
         </article>
     </div>
-    <div class="single-preview">
+    <!-- Preview Panel //-->
+    <div class="single-preview" v-if="show" transition="preview-panel">
         <h2>{{ post[0].title.rendered }}</h2>
-        <img v-bind:src="post[0].fi_300xx180" alt="">
+        <img v-bind:src="post[0].full" alt="">
         {{{ post[0].excerpt.rendered }}}
+        <a v-on:click="getThePost(post[0].prev_post)" v-if="post[0].prev_post" class="prev"></a>
+        <a v-on:click="getThePost(post[0].next_post)" v-if="post[0].next_post" class="next"></a>
+        <button class="close" v-on:click="closePost()">&#215;</button>
     </div>
 </template>
 <?php get_footer(); ?>
