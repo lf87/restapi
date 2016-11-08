@@ -1,7 +1,7 @@
 // Post Preview Panel
 .preview-panel-transition {
     transform: translate3d(0, 0, 0);
-    transition: all .55s ease-out;
+    transition: all .8s ease-out;
     backface-visibility: hidden;
     will-change: transform;
 }
@@ -13,7 +13,7 @@
 
 // Post Preview Panel Overlay
 .overlay-show-transition {
-    transition: opacity .45s ease-out;
+    transition: opacity .5s ease-out;
     backface-visibility: hidden;
     will-change: opacity;
     opacity: 1;

@@ -6,7 +6,7 @@
 </main>
 <template id="post-list-template">
     <!-- Overlay //-->
-    <div class="overlay" v-if="show" transition="overlay-show"></div>
+    <div class="overlay" v-if="show"  v-on:click="closePost()" transition="overlay-show"></div>
     <!-- Header //-->
     <header class="container main-header">
         <img src="<?php echo get_template_directory_uri() ?>/dist/assets/img/290.jpg" alt="">
