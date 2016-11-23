@@ -5,12 +5,15 @@
     </div>
 </main>
 <template id="post-list-template">
+
     <!-- Overlay //-->
     <div class="overlay" v-if="show"  v-on:click="closePost()" transition="overlay-show"></div>
+
     <!-- Header //-->
     <header class="container main-header">
         <img src="<?php echo get_template_directory_uri() ?>/dist/assets/img/290.jpg" alt="">
     </header>
+
     <!-- Filters //-->
     <div class="filters" v-bind:class="{ 'filter-active': filterActive }">
         <div class="container pad">
@@ -31,10 +34,12 @@
             </div>
         </div>
     </div>
+
     <!-- Show Filters Button //-->
     <div class="container pad filter-revealer">
-        <a href="#" class="bubble filter-btn" v-on:click="filterVisibility" v-bind:class="{ 'filter-active': filterActive }">{{ filterActive ? 'Close Filters' : 'Open Filters' }}</a>
+        <a href="#" class="btn orange-btn" v-on:click="filterVisibility" v-bind:class="{ 'filter-active': filterActive }">{{ filterActive ? 'Close Filters' : 'Open Filters' }}</a>
     </div>
+
     <!-- Posts //-->
     <div class="container post-list">
         <article v-for="post in posts | filterBy nameFilter in 'title' | filterBy categoryFilter in 'categories'" class="post">
@@ -43,22 +48,34 @@
             </a>
             <div class="post-content">
                 <h2 class="small-heading">{{ post.title.rendered }}</h2>
-                <span class="bubbles">
-                    <span class="bubble" v-for="category in post.cats">
+                <span class="btns">
+                    <span class="btn" v-for="category in post.cats">
                         {{ category.name }}
                     </span>
                 </span>
             </div>
         </article>
     </div>
+
     <!-- Preview Panel //-->
     <div class="single-preview" v-if="show" transition="preview-panel">
         <h2>{{ post[0].title.rendered }}</h2>
         <img v-bind:src="post[0].full" alt="">
         {{{ post[0].excerpt.rendered }}}
+        <a v-link="{name:'post', params:{postID: post[0].id}}" class="btn orange-btn">Read more</a>
         <a v-on:click="getThePost(post[0].prev_post)" v-if="post[0].prev_post" class="prev"></a>
         <a v-on:click="getThePost(post[0].next_post)" v-if="post[0].next_post" class="next"></a>
         <button class="close" v-on:click="closePost()">&#215;</button>
     </div>
+</template>
+
+<template id="single-post-template">
+    <article class="container single-post">
+        <h1 class="large-heading">{{ post.title.rendered }}</h1>
+        <img class="post-img" v-bind:src="post.full">
+        <div class="post-content">
+            {{{ post.content.rendered}}}
+        </div>
+    </article>
 </template>
 <?php get_footer(); ?>
