@@ -9,7 +9,11 @@ body {
 // Copy
 .large-heading,
 .medium-heading,
-.small-heading {
+.small-heading h1,
+h2,
+h3,
+h4,
+h5 {
     @include font-size(32px);
     display: inline-block;
     font-weight: 500;
@@ -23,7 +27,8 @@ body {
     }
 }
 
-.medium-heading {
+.medium-heading,
+h2 {
     @include font-size(25px);
     margin-bottom: .5em;
     @include bp-lg {
@@ -31,7 +36,10 @@ body {
     }
 }
 
-.small-heading {
+.small-heading,
+h3,
+h4,
+h5 {
     @include font-size(20px);
     margin-bottom: .5em;
 }
@@ -54,15 +62,12 @@ p {
     filter: brightness(100%);
     float: left;
     margin-right: 1em;
-    padding: .65em 3.5em;
+    padding: .5em .75em;
     transition: filter .3s ease;
     // -webkit-tap-highlight-color: $black;
-    @include bp-sm {
-        padding: .25em 2.07em;
-    }
     &:hover,
     &:active {
-        filter: brightness(90%);
+        filter: brightness(95%);
     }
     &:last-of-type {
         margin-right: 0;

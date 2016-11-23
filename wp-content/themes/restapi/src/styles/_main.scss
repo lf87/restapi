@@ -19,6 +19,10 @@
     padding: 0 1rem;
 }
 
+.orange-btn {
+    background-color: $accent-color;
+}
+
 // Header
 .main-header {
     margin-bottom: 1rem;
@@ -66,26 +70,25 @@
     flex: 1; // flex-grow: 1; flex-shrink: 1; flex-basis: auto;
     display: flex;
     flex-direction: column;
+    .btn {
+        @include font-size(12px);
+        background-color: $primary-color-dark;
+        text-align: left;
+        display: inline-block;
+        border-radius: $border-radius;
+        padding: .25em .5em;
+        margin: 0 .5em 0 0;
+    }
     h2 {
         text-align: center;
         flex-grow: 1;
     }
 }
 
-.bubbles {
+.btns {
     text-align: left;
     width: 100%;
     margin: 0 0 -.25em 0;
-}
-
-.bubble {
-    @include font-size(12px);
-    background-color: $primary-color-dark;
-    text-align: left;
-    display: inline-block;
-    border-radius: $border-radius;
-    padding: .25em .5em;
-    margin: 0 .5em 0 0;
 }
 
 // Post Preview
@@ -116,6 +119,9 @@
             width: 100%;
         }
     }
+    p {
+        padding: 0 1rem 0;
+    }
 }
 
 .prev,
@@ -130,8 +136,7 @@
     cursor: pointer;
     transition: background-color .15s ease-in;
     &:hover {
-    background-color: $accent-color-dark;
-
+        background-color: $accent-color-dark;
     }
     &::before {
         position: absolute;
@@ -151,7 +156,7 @@
 .next {
     right: 1rem;
     &::before {
-        transform: rotate(-90deg)  translate3d(0, 0, 0);
+        transform: rotate(-90deg) translate3d(0, 0, 0);
     }
     &:active::before {
         transform: rotate(-90deg) translate3d(0, 2px, 0);
@@ -238,17 +243,7 @@
 .filter-revealer {
     background-color: $background-color;
     margin-bottom: 1rem;
-    .filter-btn {
-        background-color: $accent-color;
-        transition: background-color .15s ease-in;
-    }
-    .filter-btn:hover,
-    .filter-active {
-        background-color: $accent-color-dark;
-    }
     a {
-        @include font-size(16px);
-        transition: background-color .1s ease-out;
         color: $primary-color-text;
         cursor: pointer;
         float: left;
@@ -274,5 +269,54 @@
     label {
         padding: .25em .5em 0 0;
         margin: 3px 3px 0 0;
+    }
+}
+
+// Single Post Template
+.single-post {
+    @include clearfix;
+    padding: 0 2rem 1rem;
+    @include bp-sm {
+    padding: 0 1rem 1rem;
+        
+    }
+    h1 {
+        text-align: center;
+        margin: 1em 0;
+        width: 100%;
+        display: inline-block;
+        color: $primary-color-dark;
+    }
+    h2,
+    h3,
+    h4,
+    h5 {
+        color: $primary-color-dark;
+        margin: 0 0 1em 0;
+    }
+    .post-img {
+        margin-bottom: 3rem;
+    }
+    .post-content {
+        margin: 1em 0;
+        padding: 0;
+        img {
+            width: 100%;
+            max-width: 600px;
+        }
+    }
+    a {
+        color: $primary-color;
+    }
+    ul,
+    ol {
+        margin-bottom: 1.5em;
+    }
+    li {
+        list-style-type: disc;
+        margin: 0 1.5rem;
+    }
+    blockquote {
+        margin-bottom: 1.5em;
     }
 }
