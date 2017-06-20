@@ -11,7 +11,7 @@
 
     <!-- Header //-->
     <header class="container main-header">
-        <img src="<?php echo get_template_directory_uri() ?>/dist/assets/img/290.jpg" alt="">
+        <img src="http://placehold.it/1200x290" alt="">
     </header>
 
     <!-- Filters //-->
@@ -62,7 +62,7 @@
         <h2>{{ post[0].title.rendered }}</h2>
         <img v-bind:src="post[0].full" alt="">
         {{{ post[0].excerpt.rendered }}}
-        <a v-link="{name:'post', params:{postID: post[0].id}}" class="btn orange-btn">Read more</a>
+        <a v-link="{name:'post', params:{postSlug: post[0].slug}}" class="btn orange-btn">Read more</a>
         <a v-on:click="getThePost(post[0].prev_post)" v-if="post[0].prev_post" class="prev"></a>
         <a v-on:click="getThePost(post[0].next_post)" v-if="post[0].next_post" class="next"></a>
         <button class="close" v-on:click="closePost()">&#215;</button>
@@ -71,10 +71,10 @@
 
 <template id="single-post-template">
     <article class="container single-post">
-        <h1 class="large-heading">{{ post.title.rendered }}</h1>
-        <img class="post-img" v-bind:src="post.full">
+        <h1 class="large-heading">{{ post[0].title.rendered }}</h1>
+        <img class="post-img" v-bind:src="post[0].full">
         <div class="post-content">
-            {{{ post.content.rendered}}}
+            {{{ post[0].content.rendered}}}
         </div>
     </article>
 </template>

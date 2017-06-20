@@ -15,7 +15,7 @@
 (function() {
     'use strict';
 
-    var App = Vue.extend({});
+    var App = Vue.extend();
     var postList = Vue.extend({
         template: '#post-list-template',
         data: function() {
@@ -70,7 +70,8 @@
         template: '#single-post-template',
         route: {
             data: function() {
-                this.$http.get('/wp-json/wp/v2/posts/' + this.$route.params.postID, function(post) {
+                this.$http.get('/wp-json/wp/v2/posts/?filter[name]=' + this.$route.params.postSlug, function(post) {
+                    console.log("this.$route.params.postSlug", this.$route.params.postSlug);
                     this.$set('post', post);
                 })
             }
@@ -79,13 +80,15 @@
 
 
 
-    var router = new VueRouter();
+    var router = new VueRouter({
+        history: true
+    });
 
     router.map({
         '/': {
             component: postList,
         },
-        'post/:postID': {
+        ':postSlug': {
             name: 'post',
             component: singlePost
         }

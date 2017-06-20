@@ -18,6 +18,41 @@
  * @package WordPress
  */
 
+
+$http_host = strtolower( $_SERVER['HTTP_HOST'] );
+
+switch ($http_host) {
+	case "restapi.dev":
+		// Dev Environment
+		define( 'DB_NAME', 'restapi' );
+		define( 'DB_USER', 'restapi' );
+		define( 'DB_PASSWORD', 'restapi' );
+		define( 'DB_HOST', 'localhost' );
+
+		define( 'WP_HOME', 'http://restapi.dev');
+		define( 'WP_SITEURL', WP_HOME);
+
+		// Dev will always want debug on and caching off
+		define( 'WP_DEBUG', false );
+		break;
+	default:
+		// Production Environment
+		define('DB_NAME', 'u373124226_rest' );
+		define('DB_USER', 'u373124226_rest' );
+		define('DB_PASSWORD', 'restapi' );
+		define('DB_HOST', 'mysql.hostinger.co.uk' );
+		//define('FTP_USER', 'u373124226_rest'); // Your FTP username
+		//define('FTP_PASS', 'restapi'); // Your FTP password
+		//define('FTP_HOST', 'http://restapi.16mb.com'); // Your FTP URL:Your FTP port
+
+		define( 'WP_HOME', 'http://restapi.16mb.com');
+		define( 'WP_SITEURL', WP_HOME);
+
+		// Live Environment will always be the same as production so turn off debug and turn on caching
+		define( 'WP_DEBUG', false );
+		break;
+}
+
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 define('DB_NAME', 'restapi');
